@@ -1,0 +1,25 @@
+---
+name: CICD
+on:
+  workflow_dispatch: null
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        step: code clone from github
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        step: code clone from github
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        step: code clone from github
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        step: code clone from github
