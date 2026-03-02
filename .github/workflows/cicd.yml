@@ -7,19 +7,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
-        step: code clone from github
+        run: code clone from github
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        step: code clone from github
+      - name: building docker container
+        run: echo "Docker container build"
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        step: code clone from github
+      - name: testig the container
+        run: echo "Testing the container"
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
-        step: code clone from github
+      - name: deploying the app
+        run: echo "docker compose deployed the app"
