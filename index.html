@@ -5,160 +5,221 @@
     <title>Kiran Patil | DevOps Engineer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
             background: #0f172a;
-            color: white;
+            color: #e2e8f0;
             line-height: 1.6;
         }
 
         header {
-            background: #1e293b;
-            padding: 20px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            padding: 60px 20px;
+            text-align: center;
         }
 
         header h1 {
+            font-size: 2.8rem;
             color: #38bdf8;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+
+        nav {
+            text-align: center;
+            background: #1e293b;
+            padding: 15px;
         }
 
         nav a {
-            color: white;
+            color: #38bdf8;
+            margin: 0 15px;
             text-decoration: none;
-            margin-left: 20px;
-            transition: 0.3s;
+            font-weight: 500;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: white;
         }
 
         section {
-            padding: 80px 10%;
+            padding: 60px 10%;
         }
 
-        .hero {
-            text-align: center;
-            padding-top: 120px;
-        }
-
-        .hero h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .hero span {
+        h2 {
+            margin-bottom: 30px;
             color: #38bdf8;
-        }
-
-        .btn {
+            border-bottom: 2px solid #38bdf8;
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 25px;
-            background: #38bdf8;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            padding-bottom: 5px;
         }
 
         .card {
             background: #1e293b;
             padding: 20px;
+            margin: 15px 0;
             border-radius: 10px;
-            transition: 0.3s;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
         }
 
+        .skills span {
+            display: inline-block;
+            background: #334155;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
             background: #1e293b;
-            margin-top: 50px;
+            color: #94a3b8;
         }
 
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #38bdf8;
+            color: #0f172a;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #0ea5e9;
+        }
+
+        @media(max-width:768px){
+            section {
+                padding: 40px 5%;
             }
         }
     </style>
 </head>
+
 <body>
 
 <header>
     <h1>Kiran Patil</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <p>DevOps Engineer | Cloud Enthusiast | Automation Specialist</p>
 </header>
 
-<section class="hero">
-    <h2>Hi, I'm <span>Kiran</span></h2>
-    <p>DevOps Engineer | Docker | Jenkins | AWS | CI/CD</p>
-    <a href="#projects" class="btn">View My Work</a>
-</section>
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#learning">Learning</a>
+    <a href="#contact">Contact</a>
+</nav>
 
 <section id="about">
     <h2>About Me</h2>
-    <br>
-    <p>
-        I am a passionate DevOps Engineer focused on building scalable CI/CD pipelines,
-        containerized applications using Docker, and deploying applications on AWS.
-        I enjoy automating infrastructure and improving deployment workflows.
-    </p>
+    <div class="card">
+        <p>
+            I am a passionate DevOps Engineer focused on automation, CI/CD pipelines, 
+            cloud infrastructure, and containerized deployments. I enjoy building 
+            scalable systems and optimizing development workflows using modern DevOps tools.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>DevOps Skills & Tools</h2>
+    <div class="card skills">
+        <span>Linux</span>
+        <span>Git</span>
+        <span>GitHub Actions</span>
+        <span>Docker</span>
+        <span>Kubernetes</span>
+        <span>Jenkins</span>
+        <span>AWS</span>
+        <span>Terraform</span>
+        <span>Shell Scripting</span>
+        <span>CI/CD</span>
+        <span>MySQL</span>
+        <span>Monitoring</span>
+    </div>
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
-    <br>
-    <div class="projects">
-        <div class="card">
-            <h3>Two-Tier Flask App</h3>
-            <p>Flask + MySQL app containerized with Docker and deployed using Docker Compose.</p>
-        </div>
+    <h2>DevOps Projects</h2>
 
-        <div class="card">
-            <h3>Jenkins CI/CD Pipeline</h3>
-            <p>Automated build, test, Docker push, and deployment using Jenkins pipeline.</p>
-        </div>
+    <div class="card">
+        <h3>🚀 Multi-Tier Banking Application Deployment</h3>
+        <p>
+            Designed and deployed a multi-tier application using Docker containers.
+            Configured MySQL database, backend services, and frontend integration.
+            Automated deployment using GitHub Actions CI/CD pipeline.
+        </p>
+    </div>
 
-        <div class="card">
-            <h3>AWS Deployment</h3>
-            <p>Deployed containerized applications on EC2 with security groups and monitoring.</p>
-        </div>
+    <div class="card">
+        <h3>⚙ GitHub Actions CI/CD Pipeline</h3>
+        <p>
+            Built automated workflows to deploy static websites to GitHub Pages.
+            Integrated testing, artifact upload, and deployment automation.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>📦 Dockerized Applications</h3>
+        <p>
+            Containerized applications using Docker and Docker Compose.
+            Optimized images and managed volumes, networking, and resource usage.
+        </p>
+    </div>
+
+</section>
+
+<section id="learning">
+    <h2>Continuous Learning</h2>
+    <div class="card">
+        <p>
+            Currently expanding knowledge in:
+        </p>
+        <ul>
+            <li>Advanced Kubernetes & Helm</li>
+            <li>Infrastructure as Code with Terraform</li>
+            <li>AWS Cloud Architecture</li>
+            <li>Monitoring with Prometheus & Grafana</li>
+            <li>DevSecOps & Security Best Practices</li>
+        </ul>
     </div>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
-    <br>
-    <p>Email: kiranpatiluniverse@gmail.com</p>
-    <p>GitHub: github.com/kiranpatil22</p>
+    <div class="card">
+        <p>Email: kiran@example.com</p>
+        <p>GitHub: github.com/yourusername</p>
+        <a href="https://github.com/yourusername" class="btn" target="_blank">Visit GitHub</a>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Kiran Patil | DevOps Portfolio</p>
+    <p>© 2026 Kiran Patil | Built with ❤️ using HTML & DevOps</p>
 </footer>
 
 </body>
