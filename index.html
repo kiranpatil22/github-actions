@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiran Patil | DevOps Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #1e293b;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 80px 10%;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .hero span {
+            color: #38bdf8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #38bdf8;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1e293b;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Kiran Patil</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Hi, I'm <span>Kiran</span></h2>
+    <p>DevOps Engineer | Docker | Jenkins | AWS | CI/CD</p>
+    <a href="#projects" class="btn">View My Work</a>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <br>
+    <p>
+        I am a passionate DevOps Engineer focused on building scalable CI/CD pipelines,
+        containerized applications using Docker, and deploying applications on AWS.
+        I enjoy automating infrastructure and improving deployment workflows.
+    </p>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <br>
+    <div class="projects">
+        <div class="card">
+            <h3>Two-Tier Flask App</h3>
+            <p>Flask + MySQL app containerized with Docker and deployed using Docker Compose.</p>
+        </div>
+
+        <div class="card">
+            <h3>Jenkins CI/CD Pipeline</h3>
+            <p>Automated build, test, Docker push, and deployment using Jenkins pipeline.</p>
+        </div>
+
+        <div class="card">
+            <h3>AWS Deployment</h3>
+            <p>Deployed containerized applications on EC2 with security groups and monitoring.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <br>
+    <p>Email: kiranpatiluniverse@gmail.com</p>
+    <p>GitHub: github.com/kiranpatil22</p>
+</section>
+
+<footer>
+    <p>© 2026 Kiran Patil | DevOps Portfolio</p>
+</footer>
+
+</body>
+</html>
