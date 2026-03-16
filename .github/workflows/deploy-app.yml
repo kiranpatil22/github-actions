@@ -23,4 +23,4 @@ jobs:
             - name: deploy with docker-compose
               run: |
                 docker compose down 
-                docker compose up -d --build
+                docker compose up -d --pull always
