@@ -2,7 +2,7 @@ name: Deploy Flask App
 on:
   
   workflow_run:
-    workflows: ["docker-build-push"] # This must match the name of the first workflow.
+    workflows: ["docker build and push"] # This must match the name of the first workflow.
     types:
       - completed
 jobs:
