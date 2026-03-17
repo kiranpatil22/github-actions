@@ -10,6 +10,3 @@ def hello_world():
 @app.route('/health')
 def health():
     return 'Server is up and running'
-
-
-CMD = ["gunicorn", "--bind", "0.0.0.0:80", "app:app"]
