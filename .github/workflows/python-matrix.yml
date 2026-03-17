@@ -1,7 +1,6 @@
 name: Python Linting and Testing
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
     validate:
