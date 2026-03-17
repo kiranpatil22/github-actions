@@ -4,8 +4,8 @@ on:
 jobs:
     code-quality:
         uses: ./.github/workflows/code-quality.yml
-   #secret-scan:
-    #   uses: ./.github/workflows/secret-scan.yml
+    secret-scan:
+       uses: ./.github/workflows/secret-scan.yml
     dependency-scan:
         uses: ./.github/workflows/dependancy-scan.yml
   # image-scan:
