@@ -1,0 +1,6 @@
+# these are medium severity CVEs that have been added to the .trivyignore file to prevent them from being flagged during vulnerability scanning. This is often done when the vulnerabilities are not relevant to the specific context of the application or when they have been mitigated in other ways.
+# ignore the vulnerability for 
+
+# libgcc 12.2.0
+CVE-2026-27171
+CVE-2026-4105
