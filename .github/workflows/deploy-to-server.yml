@@ -69,4 +69,4 @@ jobs:
                     export DOCKERHUB_TOKEN="${{ secrets.DOCKERHUB_TOKEN }}"
                     echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin   
                     docker compose down
-                    docker-compose up -d --pull always
+                    docker compose up -d --pull always
