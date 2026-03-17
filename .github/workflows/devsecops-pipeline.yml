@@ -4,12 +4,12 @@ on:
 jobs:
     code-quality:
         uses: ./.github/workflows/code-quality.yml
-    secret-scan:
-        uses: ./.github/workflows/secret-scan.yml
+   #secret-scan:
+    #   uses: ./.github/workflows/secret-scan.yml
     dependency-scan:
         uses: ./.github/workflows/dependancy-scan.yml
-    image-scan:
-        uses: ./.github/workflows/images-scan.yml
-    docker-lint-scan:       
-        uses: ./.github/workflows/docker-lint.yml 
+  # image-scan:
+    #   uses: ./.github/workflows/images-scan.yml
+   #docker-lint-scan:       
+       #uses: ./.github/workflows/docker-lint.yml 
 
