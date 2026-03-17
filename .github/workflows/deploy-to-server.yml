@@ -1,0 +1,18 @@
+# this workflow will deploy the app to the server using ssh and docker-compose
+name: deploy app to server
+on:
+    workflow_call:
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+                        
+            - name: deploy with ssh and docker-compose
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+                script: |
+                    echo "Deploying app to server..."
+                    mkdir devops
