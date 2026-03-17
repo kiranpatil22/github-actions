@@ -39,8 +39,8 @@ jobs:
                     # Check Docker
                     if ! command -v docker >/dev/null 2>&1; then
                         echo "Docker not found. Installing..."
-                        sudo apt update
-                        sudo apt install -y docker.io
+                        sudo apt-get update
+                        sudo apt-get install -y docker.io
                         sudo usermod -aG docker $USER
                     else
                         echo "Docker already installed."
@@ -49,8 +49,8 @@ jobs:
                     # Check Docker Compose (v2 plugin)
                     if ! docker-compose --version >/dev/null 2>&1; then
                         echo "Docker Compose not found. Installing..."
-                        sudo apt update
-                        sudo apt install -y docker-compose-v2
+                        sudo apt-get update
+                        sudo apt-get install -y docker-compose-v2
                     else
                         echo "Docker Compose already installed."
                     fi
