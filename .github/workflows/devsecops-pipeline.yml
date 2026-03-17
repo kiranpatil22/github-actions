@@ -10,6 +10,6 @@ jobs:
         uses: ./.github/workflows/dependancy-scan.yml
   # image-scan:
     #   uses: ./.github/workflows/images-scan.yml
-   #docker-lint-scan:       
-       #uses: ./.github/workflows/docker-lint.yml 
+    docker-lint-scan:       
+       uses: ./.github/workflows/docker-lint.yml 
 
