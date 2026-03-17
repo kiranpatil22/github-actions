@@ -6,13 +6,67 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-                        
-            - name: deploy with ssh and docker-compose
+            - name: checkout code
+              uses: actions/checkout@v4
+
+            - name: Copy the docker-compose file to the server
               uses: appleboy/ssh-action@v1.0.3
               with:
                 host: ${{ secrets.EC2_SSH_HOST }}
                 username: ${{ secrets.EC2_SSH_USERNAME }}
                 key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
                 script: |
-                    echo "Deploying app to server..."
-                    mkdir devops
+                    echo "created the deploy folder for the app."
+                    mkdir -p deploy
+                    echo "moving the docker-compose file to the deploy folder."
+
+            - name: Copy the docker-compose file to the server
+              uses: appleboy/scp-action@v1
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+                source: docker-compose.yml
+                target: ~/deploy        
+            
+            - name: Ensure Docker is installed on server
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+                script: |
+                    # Check Docker
+                    if ! command -v docker >/dev/null 2>&1; then
+                        echo "Docker not found. Installing..."
+                        sudo apt update
+                        sudo apt install -y docker.io
+                        sudo usermod -aG docker $USER
+                    else
+                        echo "Docker already installed."
+                    fi
+
+                    # Check Docker Compose (v2 plugin)
+                    if ! docker compose version >/dev/null 2>&1; then
+                        echo "Docker Compose not found. Installing..."
+                        sudo apt update
+                        sudo apt install -y docker-compose-plugin
+                    else
+                        echo "Docker Compose already installed."
+                    fi
+              
+            # Deploy the app
+            - name: Deploy app
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.EC2_SSH_HOST }}
+                username: ${{ secrets.EC2_SSH_USERNAME }}
+                key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+                script: |
+                    cd ~/deploy
+                    echo "Logging in to Docker Hub..."
+                    export DOCKERHUB_USERNAME="${{ secrets.DOCKERHUB_USERNAME }}"
+                    export DOCKERHUB_TOKEN="${{ secrets.DOCKERHUB_TOKEN }}"
+                    echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin   
+                    docker compose down
+                    docker-compose up -d --pull always
