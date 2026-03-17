@@ -1,6 +1,7 @@
 name: DevSecOps End to End Pipeline
 on:
-  workflow_dispatch:
+    push:
+        branches: [ main ]
 jobs:
     # this workflow will run security checks like code quality, secret scan, dependency scan and docker lint before building and pushing the docker image to registry
     code-quality:
