@@ -2,14 +2,21 @@ name: DevSecOps End to End Pipeline
 on:
   workflow_dispatch:
 jobs:
+    # this workflow will run security checks like code quality, secret scan, dependency scan and docker lint before building and pushing the docker image to registry
     code-quality:
         uses: ./.github/workflows/code-quality.yml
     secret-scan:
        uses: ./.github/workflows/secret-scan.yml
     dependency-scan:
         uses: ./.github/workflows/dependancy-scan.yml
-    image-scan:
-       uses: ./.github/workflows/images-scan.yml
     docker-lint-scan:       
-       uses: ./.github/workflows/docker-lint.yml 
-
+        uses: ./.github/workflows/docker-lint.yml 
+    # once security checks are done, build and push docker image to registry
+    docker-build-push:
+        needs: [docker-lint-scan,dependency-scan,secret-scan,code-quality]
+        uses: ./.github/workflows/docker-build-push.yml
+        secrets: inherit
+    docker-image-scan:
+        needs: [docker-build-push]
+        uses: ./.github/workflows/images-scan.yml
+        secrets: inherit
