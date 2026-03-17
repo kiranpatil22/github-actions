@@ -1,0 +1,23 @@
+# This workflow will scan the project dependencies for vulnerabilities using a tool like pip-audit or safety.
+# You can customize the tool and configuration as needed.
+name: Dependencies scan 
+
+on:
+    workflow_call:
+jobs:
+    dependency-check:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v4
+
+            - name: set up python 3.12
+              uses: actions/setup-python@v5
+              with:
+                python-version: 3.12
+
+            - name: run dependency scan
+              run: pip install pip-audit 
+
+            - name: run pip-audit
+              run: pip-audit -r requirements.txt 
