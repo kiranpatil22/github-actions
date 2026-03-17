@@ -47,10 +47,10 @@ jobs:
                     fi
 
                     # Check Docker Compose (v2 plugin)
-                    if ! docker compose version >/dev/null 2>&1; then
+                    if ! docker-compose --version >/dev/null 2>&1; then
                         echo "Docker Compose not found. Installing..."
                         sudo apt update
-                        sudo apt install -y docker-compose-plugin
+                        sudo apt install -y docker-compose-v2
                     else
                         echo "Docker Compose already installed."
                     fi
