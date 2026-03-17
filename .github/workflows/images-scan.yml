@@ -1,0 +1,21 @@
+# uses trivy to scan docker images for vulnerabilities
+name: Docker Image Scanner
+on:
+    workflow_call:
+
+jobs:
+    image-scan:
+        runs-on: ubuntu-latest
+        steps:
+            - name: login to  Docker hub
+              uses: docker/login-action@v4
+              with:
+                username: ${{ vars.DOCKERHUB_USERNAME }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+            - name: scan docker image with trivy
+              uses: aquasecurity/trivy-action@0.33.1
+              with:
+                severity: 'CRITICAL,HIGH'
+                exit-code: '1'
+            
